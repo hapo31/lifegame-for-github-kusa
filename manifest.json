@@ -1,0 +1,16 @@
+{
+    "manifest_version": 2,
+    "name": "Github Lifegame",
+    "description": "This is test for chrome extension.",
+    "version": "1.0",
+    "content_scripts": [
+        {
+            "matches": [
+                "https://github.com/*"
+            ],
+            "js": ["scripts/life.js", "scripts/script.js"]
+        }
+    ],
+    "permissions": [
+    ]
+}
