@@ -38,7 +38,8 @@ class LifeGame {
 
 
     isLive(x, y) {
-        return this._field[y * this._width + x] && this._field[y * this._width + x] !== 0;
+        return this._width > x && this._height > y &&
+            this._field[y * this._width + x] && this._field[y * this._width + x] !== 0;
     }
 
     get height() { return this._height; }
