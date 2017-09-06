@@ -38,8 +38,9 @@ class LifeGame {
 
 
     isLive(x, y) {
-        return this._width > x && this._height > y &&
-            this._field[y * this._width + x] && this._field[y * this._width + x] !== 0;
+        return  x >= 0 && y >= 0 && // 0以上かをチェック
+                this._width > x && this._height > y && // 境界チェック
+                this._field[y * this._width + x] !== 0; // 値チェック
     }
 
     get height() { return this._height; }
