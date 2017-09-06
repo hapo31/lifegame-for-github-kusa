@@ -1,4 +1,9 @@
 (() => {
+    const fieldDoc = document.querySelector("svg.js-calendar-graph-svg g");
+    if (!fieldDoc) {
+        return;
+    }
+
     const colors = [
         "#ebedf0",
         "#c6e48b",
@@ -12,10 +17,7 @@
     const elements = [];
     const initField = new Array(7 * 54);
 
-    const fieldDoc = document.querySelector("svg.js-calendar-graph-svg g");
-    if (!fieldDoc) {
-        return;
-    }
+
     const gElements = fieldDoc.querySelectorAll("g");
     for (let y = 0; y < life.height; ++y) {
         const rect = gElements[y].getElementsByTagName("rect");
