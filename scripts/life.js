@@ -33,14 +33,22 @@ class LifeGame {
                 }
             }
         }
-        this._field = Object.assign({}, tempField);
+        this._field = tempField;
     }
 
 
     isLive(x, y) {
-        return  x >= 0 && y >= 0 && // 0以上かをチェック
-                this._width > x && this._height > y && // 境界チェック
-                this._field[y * this._width + x] !== 0; // 値チェック
+        if (x < 0) {
+            x = this._width - 1;
+        } else if (x >= this._width) {
+            x = 0;
+        }
+        if (y < 0) {
+            y = this._height - 1;
+        } else if (y >= this.height) {
+            y = 0;
+        }
+        return this._field[y * this._width + x] !== 0; // 値チェック
     }
 
     get height() { return this._height; }
