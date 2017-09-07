@@ -45,7 +45,7 @@ class LifeGame {
         }
         if (y < 0) {
             y = this._height - 1;
-        } else if (y >= this.height) {
+        } else if (y >= this._height) {
             y = 0;
         }
         return this._field[y * this._width + x] !== 0; // 値チェック
