@@ -20,17 +20,18 @@
 
     const gElements = fieldDoc.querySelectorAll("g");
     for (let y = 0; y < life.height; ++y) {
-        const rect = gElements[y].getElementsByTagName("rect");
+        let rect = gElements[y].getElementsByTagName("rect");
         // 右端の列の足りない部分を生成する処理
         while (rect.length < 7) {
-            const r = document.createElementNS("http://www.w3.org/2000/svg","rect");
+            const r = document.createElementNS("http://www.w3.org/2000/svg", "rect");
             r.setAttribute("class", "day");
             r.setAttribute("width", 10);
             r.setAttribute("height", 10);
             r.setAttribute("x", -39);
             r.setAttribute("y", 12 * rect.length);
             r.setAttribute("fill", colors[0]);
-            rect[rect.length] = r;
+            gElements[y].appendChild(r);
+            rect = gElements[y].getElementsByTagName("rect");
         }
         for (let x = 0; x < life.width; ++x) {
             elements.push(rect[x]);
